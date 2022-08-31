@@ -33,3 +33,20 @@ def register(request):
         'form': form
     }
     return render(request, "registration/register.html", context)
+
+def password_change(request):
+    if request.method == 'POST':
+        # We will use user change form this time
+        # Import it
+        form = UserChangeForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('home')
+    else:
+        form = UserChangeForm()
+    
+    context = {
+        'form': form
+    }
+    
+    return render(request, "registration/password_change.html", context)
