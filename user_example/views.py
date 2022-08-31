@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate, login
 
 def home(request):
@@ -44,9 +44,9 @@ def password_change(request):
         return redirect('home')
     else:
         form = UserChangeForm()
-    
+
     context = {
         'form': form
     }
-    
+
     return render(request, "registration/password_change.html", context)

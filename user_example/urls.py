@@ -2,8 +2,7 @@ from django.urls import path, include
 from .views import (
     home,
     special,
-    register,
-    password_change
+    register
 )
 
 from django.contrib.auth import views as auth_views
